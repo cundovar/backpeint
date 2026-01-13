@@ -33,8 +33,11 @@ class AdminOeuvreController extends AbstractController
      * @Route("/", name="admin_index", methods={"GET"})
      */
     public function index(OeuvreRepository $oeuvreRepo)
+
     {
-      return $this->json($oeuvreRepo->findAll(),200,['groups'=>'read:article']);
+        $oeuvres = $oeuvreRepo->findAll();
+        
+      return $this->json($oeuvres,200,['groups'=>'read:article']);
     }
 
 
